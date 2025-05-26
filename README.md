@@ -5,7 +5,7 @@ Submission for the
 
 ## Analysis
 
-Statista is a large provider of data looking to create an API to expose to RAG-like (Retrieval-Augmented Generation) applications. Since the data is Statista's key intellectual property, it is assumed the role of the Statista API is to provide the data to augment LLMs, not to provide the LLM feature itself. Below is a workflow diagram of a simple RAG application. The provider application is any application that wishes to use Statista data to augment its LLM.
+Statista is a large provider of data looking to create an API to expose to RAG-like (Retrieval-Augmented Generation) applications. Below is a workflow diagram of a simple RAG application. The provider application is any application that wishes to use Statista data to augment its LLM.
 
 ![Workflow](docs/workflow.png "Workflow")
 
@@ -45,7 +45,8 @@ A small demo has been created to illustrate how an API can query a vector store 
     fastapi dev main.py
     ```
 
-1. Visit the api docs page and use the swagger UI to test endpoint
+1. Visit the api docs page and use the swagger UI to test endpoint.
 
     http://127.0.0.1:8000/docs
 
+    You can explore available endpoints and the expecte payload schema. To interact with the endpoint click the "Try it out" button at the top right of each endpoint. This will allow you to submit to the endpoint and see the results.
