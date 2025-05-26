@@ -10,8 +10,3 @@ class DocData(BaseModel):
     description: str
     link: HttpUrl
     date: date
-
-
-class SearchResult(BaseModel):
-    document: DocData
-    score: float
