@@ -172,3 +172,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Mac Files
+.DS_Store
+
+# Data Files
+mock_data.json
+statista-mock-data.db/
