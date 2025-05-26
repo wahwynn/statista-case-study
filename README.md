@@ -33,7 +33,7 @@ A small demo has been created to illustrate how an API can query a vector store 
     pip install -r requirements.txt
     ```
 
-1. Populate the mock data
+1. Create the mock data and populate the Chroma vector store
 
     ```bash
     python vector_store.py
