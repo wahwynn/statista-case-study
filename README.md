@@ -5,58 +5,61 @@ Submission for the
 
 ## Analysis
 
-Statista is a large provider of data looking to create an API to expose to RAG-like (Retrieval-Augmented Generation) applications. Below is a workflow diagram of a simple RAG application. The provider application is any application that wishes to use Statista data to augment its LLM.
+Statista is a large provider of data aiming to create an API for use with Retrieval-Augmented Generation (RAG) applications. Below is a workflow diagram of a simple RAG application. The provider application refers to any system that uses Statista data to enhance the performance of a large language model (LLM).
 
 ![Workflow](docs/workflow.png "Workflow")
 
-The Statista API will sit at the data retrieval layer of the RAG. It will return relevant documents that can be used to power an LLM allowing it to produce better, more relevant results.
+The Statista API will operate at the data retrieval layer of the RAG pipeline. It will return relevant documents that can be used to power an LLM, allowing it to generate more accurate and contextually relevant responses.
 
 ### Document Stores
 
-A crucial part of the Statista API’s usefulness will be its ability to return relevant results from a large database of over 1 million statistics and 80,000 topics. Depending on the nature of the data different database types can be used. Although the sample data for this case study has a well defined schema that could be used in a relational databse, this demo will implement the search on a vector database. A vector database was chosen because Statista has a large amount of data across many topics that may be unstructured. It is also possible for an endpoint to query multiple database if the need arises.
+A key factor in the usefulness of the Statista API is its ability to retrieve relevant results from a large corpus of over a million statistics across 80,000 topics. Depending on the nature of the data, different types of databases may be appropriate.
 
+Although the sample data provided for this case study has a well-defined schema suitable for a relational database, this demo implements search functionality using a vector database. This approach was chosen due to the breadth and potentially unstructured nature of Statista’s data. A productionized version could support querying from multiple databases types if needed.
 
 ## Code
 
-A small demo has been created to illustrate how an API can query a vector store to retrieve documents for RAG applications. Key features of the demo code are:
+A small demo application has been developed to illustrate how an API can query a vector store to retrieve documents for use in RAG applications.
+
+Key features:
 
 * Written in Python 3.13
-* Faker to create mock data
-* FastAPI for the REST API
-* ChromaDB for the Vector Store
+* Uses Faker to generate mock data
+* Uses FastAPI for the RESTful API
+* Uses ChromaDB as the vector store
 
 ### Instructions
 
-1. Install
+1. Install Dependencies
 
     ```bash
     pip install -r requirements.txt
     ```
 
-1. Create the mock data (Optional)
+1. Create Mock Data (Optional)
 
     ```bash
     python mock_data.py
     ```
 
-    The mock data will be cached locally in the `mock_data.json` file. Delete this file if you ever want to regenerate the mock data. This step is optional. If the mock data doesn't exist, it will be created automatically in the next step when populating the Chroma store.
+    This step creates and caches mock data in `mock_data.json`. If you want to regenerate the mock data, delete this file. Note: if the file does not exist, it will be created automatically when populating the vector store in the next step.
 
-1. Populate the Chroma vector store with the mock_data
+1. Populate the Chroma Vector Store
 
     ```bash
     python vector_store.py
     ```
 
-    This step will load the mock data into a Chroma database and persist it to the folder `mock_data_chroma.db`. Subsequent runs will load from this persisted store. To recreate the database from the mock data, delete the persisted folder and rerun this command.
+    This script loads the mock data into a Chroma database and persists it in the `mock_data_chroma.db` folder. Future runs will use this persisted store. To reset the database, delete the folder and re-run the script.
 
-1. Run
+1. Run the API Endpoint
 
     ```bash
     fastapi dev main.py
     ```
 
-1. Visit the api docs page and use the swagger UI to test endpoint.
+    Visit the API documentation in Swagger UI:
 
     http://127.0.0.1:8000/docs
 
-    You can explore available endpoints and the expecte payload schema. To interact with the endpoint click the "Try it out" button at the top right of each endpoint. This will allow you to submit to the endpoint and see the results.
+    You can explore available endpoints and view the expected payload schema. Click the "Try it out" button to interact with the API directly and see the responses.
