@@ -34,17 +34,20 @@ A small demo has been created to illustrate how an API can query a vector store 
     ```
 
 1. Create the mock data (Optional)
+
     ```bash
     python mock_data.py
     ```
 
-    The mock data will be cached locally in the `mock_data.json` file. This step is optional. It will be run automatically in the next step when populating the Chroma store.
+    The mock data will be cached locally in the `mock_data.json` file. Delete this file if you ever want to regenerate the mock data. This step is optional. If the mock data doesn't exist, it will be created automatically in the next step when populating the Chroma store.
 
 1. Populate the Chroma vector store with the mock_data
 
     ```bash
     python vector_store.py
     ```
+
+    This step will load the mock data into a Chroma database and persist it to the folder `mock_data_chroma.db`. Subsequent runs will load from this persisted store. To recreate the database from the mock data, delete the persisted folder and rerun this command.
 
 1. Run
 

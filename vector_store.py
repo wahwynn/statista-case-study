@@ -8,7 +8,7 @@ from mock_data import MOCK_DATA_FILE, generate_mock_data
 
 embedding_function = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
-COLLECTION_NAME = "statista-mock-data"
+COLLECTION_NAME = "mock_data_chroma"
 PERSIST_DIR = f"./{COLLECTION_NAME}.db"
 
 

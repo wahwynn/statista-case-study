@@ -178,7 +178,7 @@ cython_debug/
 
 # Data Files
 mock_data.json
-statista-mock-data.db/
+mock_data_chroma.db/
 
 # VSCode Workspace
 .vscode/
