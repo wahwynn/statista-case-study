@@ -20,7 +20,7 @@ A crucial part of the Statista API’s usefulness will be its ability to return 
 
 A small demo has been created to illustrate how an API can query a vector store to retrieve documents for RAG applications. Key features of the demo code are:
 
-* Written in Python 3.12
+* Written in Python 3.13
 * Faker to create mock data
 * FastAPI for the REST API
 * ChromaDB for the Vector Store
