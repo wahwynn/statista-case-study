@@ -1,6 +1,6 @@
 # Statista Case Study
 
-Submission for the
+Submission for the 
 [Statista Case Study](docs/Case_Study_-_Software.pdf).
 
 ## Analysis

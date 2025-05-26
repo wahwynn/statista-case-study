@@ -179,3 +179,7 @@ cython_debug/
 # Data Files
 mock_data.json
 statista-mock-data.db/
+
+# VSCode Workspace
+.vscode/
+*.code-workspace
