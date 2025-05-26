@@ -1,13 +1,16 @@
-from mock_data import generate_mock_data, MOCK_DATA_FILE
-from langchain_community.document_loaders import JSONLoader
 import json
+
 from langchain_chroma import Chroma
+from langchain_community.document_loaders import JSONLoader
 from langchain_huggingface import HuggingFaceEmbeddings
+
+from mock_data import MOCK_DATA_FILE, generate_mock_data
 
 embedding_function = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 COLLECTION_NAME = "statista-mock-data"
 PERSIST_DIR = f"./{COLLECTION_NAME}.db"
+
 
 def get_vector_store_db():
     return Chroma(
@@ -18,14 +21,12 @@ def get_vector_store_db():
 
 
 def find_in_vector_store(query, k=5):
-    retriever = vectordb.as_retriever(search_kwargs={'k': k})
+    retriever = vectordb.as_retriever(search_kwargs={"k": k})
     return retriever.get_relevant_documents(query)
 
 
 def docs_to_json(docs):
-    return [
-        json.loads(doc.page_content) for doc in docs
-    ]
+    return [json.loads(doc.page_content) for doc in docs]
 
 
 # Initial load of the vectordb
@@ -54,5 +55,5 @@ if __name__ == "__main__":
         total_records = len(all_documents)
         print("Total records in the db: ", total_records)
     else:
-        print(f"Data already populated with {total_records} documents")
+        print(f"Data already populated with {total_records} documents. Sample:")
         print(all_documents[:5])

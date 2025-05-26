@@ -1,5 +1,7 @@
-from pydantic import BaseModel, HttpUrl
 from datetime import date
+
+from pydantic import BaseModel, HttpUrl
+
 
 class DocData(BaseModel):
     id: int
@@ -8,6 +10,7 @@ class DocData(BaseModel):
     description: str
     link: HttpUrl
     date: date
+
 
 class SearchResult(BaseModel):
     document: DocData

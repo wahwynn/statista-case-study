@@ -1,9 +1,10 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import StreamingResponse
-from fastapi.responses import JSONResponse
 import json
+
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse, StreamingResponse
+
 from models import SearchResult
-from vector_store import find_in_vector_store, docs_to_json
+from vector_store import docs_to_json, find_in_vector_store
 
 FIND_LIMIT = 5
 STREAM_FIND_LIMIT = 10
@@ -14,7 +15,7 @@ app = FastAPI(
 )
 
 
-@app.get("/find",response_model=list[SearchResult])
+@app.get("/find", response_model=list[SearchResult])
 async def find(query: str):
     top_items = docs_to_json(find_in_vector_store(query, k=FIND_LIMIT))
     return JSONResponse(content=top_items)

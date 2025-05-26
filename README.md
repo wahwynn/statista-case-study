@@ -33,6 +33,12 @@ A small demo has been created to illustrate how an API can query a vector store 
     pip install -r requirements.txt
     ```
 
+1. Populate the mock data
+
+    ```bash
+    python vector_store.py
+    ```
+
 1. Run
 
     ```bash
