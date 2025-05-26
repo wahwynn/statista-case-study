@@ -35,7 +35,7 @@ vectordb = get_vector_store_db()
 if __name__ == "__main__":
     all_documents = vectordb.get()["documents"]
     total_records = len(all_documents)
-    print("Total records in the collection: ", total_records)
+    print(f"Total records in the collection: {total_records}")
 
     if total_records == 0:
         generate_mock_data()
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
         all_documents = db.get()["documents"]
         total_records = len(all_documents)
-        print("Total records in the db: ", total_records)
+        print(f"Total records in the db: {total_records}")
     else:
         print(f"Data already populated with {total_records} documents. Sample:")
         print(all_documents[:5])
