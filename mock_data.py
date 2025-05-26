@@ -33,4 +33,5 @@ def generate_mock_data(n=100):
 
 
 if __name__ == "__main__":
-    generate_mock_data()
+    data = generate_mock_data()
+    print(f"Created {len(data)} mock entries")

@@ -33,7 +33,14 @@ A small demo has been created to illustrate how an API can query a vector store 
     pip install -r requirements.txt
     ```
 
-1. Create the mock data and populate the Chroma vector store
+1. Create the mock data (Optional)
+    ```bash
+    python mock_data.py
+    ```
+
+    The mock data will be cached locally in the `mock_data.json` file. This step is optional. It will be run automatically in the next step when populating the Chroma store.
+
+1. Populate the Chroma vector store with the mock_data
 
     ```bash
     python vector_store.py
