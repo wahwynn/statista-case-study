@@ -22,7 +22,7 @@ def get_vector_store_db():
 
 def find_in_vector_store(query, k=5):
     retriever = vectordb.as_retriever(search_kwargs={"k": k})
-    return retriever.get_relevant_documents(query)
+    return retriever.invoke(query)
 
 
 def docs_to_json(docs):
